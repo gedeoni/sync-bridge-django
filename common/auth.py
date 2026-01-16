@@ -17,3 +17,6 @@ class ApiKeyAuthentication(BaseAuthentication):
             raise AuthenticationFailed({'status': 401, 'message': 'Access Denied'})
 
         return AnonymousUser(), token
+
+    def authenticate_header(self, request):
+        return 'ApiKey'
